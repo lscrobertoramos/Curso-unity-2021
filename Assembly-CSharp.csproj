@@ -12,7 +12,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{dcc6fea7-9bf7-8eb9-4c85-31da3c9d3ffe}</ProjectGuid>
+    <ProjectGuid>{9ff7c2b0-c164-62f3-f7bc-7b413de8106b}</ProjectGuid>
     <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -47,12 +47,17 @@
      <Compile Include="Assets\_Scripts\WaveSpawner.cs" />
      <Compile Include="Assets\_Scripts\PlayerShooting.cs" />
      <Compile Include="Assets\_Scripts\SimpleCameraController.cs" />
+     <Compile Include="Assets\_Scripts\ScoreManager.cs" />
+     <Compile Include="Assets\_Scripts\EnemyManager.cs" />
      <Compile Include="Assets\_Scripts\ObjectPool.cs" />
      <Compile Include="Assets\_Scripts\Life.cs" />
      <Compile Include="Assets\_Scripts\MoveForward.cs" />
      <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
      <Compile Include="Assets\Sprite\Sci-Fi UI\Demo_Assets\scripts\GUI_Demo.cs" />
      <Compile Include="Assets\_Scripts\AutoDestroy.cs" />
+     <Compile Include="Assets\_Scripts\WaveManager.cs" />
+     <Compile Include="Assets\_Scripts\GameModeWaves.cs" />
+     <Compile Include="Assets\_Scripts\Enemy.cs" />
      <Compile Include="Assets\_Scripts\PlayerMovement.cs" />
      <Compile Include="Assets\_Scripts\DamageOnContact.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
@@ -311,13 +316,13 @@
      <HintPath>C:/Program Files/Unity/Hub/Editor/2021.1.14f1/Editor/Data/Managed/UnityEngine/UnityEditor.UnityConnectModule.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
-     <HintPath>C:/Users/DELL/Documents/Unity Projects/Shooter/Library/PackageCache/com.unity.visualscripting@1.6.1/Runtime/VisualScripting.Flow/Dependencies/NCalc/Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
+     <HintPath>C:/Users/DELL/Documents/Unity Projects/Shooter/Curso-unity-2021/Library/PackageCache/com.unity.visualscripting@1.6.1/Runtime/VisualScripting.Flow/Dependencies/NCalc/Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
      </Reference>
      <Reference Include="clipper_library">
-     <HintPath>C:/Users/DELL/Documents/Unity Projects/Shooter/Library/PackageCache/com.unity.cinemachine@2.7.4/Runtime/ThirdParty/clipper_library.dll</HintPath>
+     <HintPath>C:/Users/DELL/Documents/Unity Projects/Shooter/Curso-unity-2021/Library/PackageCache/com.unity.cinemachine@2.7.4/Runtime/ThirdParty/clipper_library.dll</HintPath>
      </Reference>
      <Reference Include="Newtonsoft.Json">
-     <HintPath>C:/Users/DELL/Documents/Unity Projects/Shooter/Library/PackageCache/com.unity.nuget.newtonsoft-json@2.0.0/Runtime/Newtonsoft.Json.dll</HintPath>
+     <HintPath>C:/Users/DELL/Documents/Unity Projects/Shooter/Curso-unity-2021/Library/PackageCache/com.unity.nuget.newtonsoft-json@2.0.0/Runtime/Newtonsoft.Json.dll</HintPath>
      </Reference>
      <Reference Include="mscorlib">
      <HintPath>C:/Program Files/Unity/Hub/Editor/2021.1.14f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>
@@ -668,124 +673,124 @@
      <HintPath>C:/Program Files/Unity/Hub/Editor/2021.1.14f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Xml.XPath.XDocument.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualScripting.Flow.Editor">
-     <HintPath>C:/Users/DELL/Documents/Unity Projects/Shooter/Library/ScriptAssemblies/Unity.VisualScripting.Flow.Editor.dll</HintPath>
+     <HintPath>C:/Users/DELL/Documents/Unity Projects/Shooter/Curso-unity-2021/Library/ScriptAssemblies/Unity.VisualScripting.Flow.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualEffectGraph.Editor">
-     <HintPath>C:/Users/DELL/Documents/Unity Projects/Shooter/Library/ScriptAssemblies/Unity.VisualEffectGraph.Editor.dll</HintPath>
+     <HintPath>C:/Users/DELL/Documents/Unity Projects/Shooter/Curso-unity-2021/Library/ScriptAssemblies/Unity.VisualEffectGraph.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VSCode.Editor">
-     <HintPath>C:/Users/DELL/Documents/Unity Projects/Shooter/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+     <HintPath>C:/Users/DELL/Documents/Unity Projects/Shooter/Curso-unity-2021/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.RenderPipelines.Universal.Shaders">
-     <HintPath>C:/Users/DELL/Documents/Unity Projects/Shooter/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Shaders.dll</HintPath>
+     <HintPath>C:/Users/DELL/Documents/Unity Projects/Shooter/Curso-unity-2021/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Shaders.dll</HintPath>
      </Reference>
      <Reference Include="Unity.RenderPipelines.Universal.Runtime">
-     <HintPath>C:/Users/DELL/Documents/Unity Projects/Shooter/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Runtime.dll</HintPath>
+     <HintPath>C:/Users/DELL/Documents/Unity Projects/Shooter/Curso-unity-2021/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Runtime.dll</HintPath>
      </Reference>
      <Reference Include="Unity.TextMeshPro.Editor">
-     <HintPath>C:/Users/DELL/Documents/Unity Projects/Shooter/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+     <HintPath>C:/Users/DELL/Documents/Unity Projects/Shooter/Curso-unity-2021/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualStudio.Editor">
-     <HintPath>C:/Users/DELL/Documents/Unity Projects/Shooter/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
+     <HintPath>C:/Users/DELL/Documents/Unity Projects/Shooter/Curso-unity-2021/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.ProBuilder.AddOns.Editor">
-     <HintPath>C:/Users/DELL/Documents/Unity Projects/Shooter/Library/ScriptAssemblies/Unity.ProBuilder.AddOns.Editor.dll</HintPath>
+     <HintPath>C:/Users/DELL/Documents/Unity Projects/Shooter/Curso-unity-2021/Library/ScriptAssemblies/Unity.ProBuilder.AddOns.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualEffectGraph.Runtime">
-     <HintPath>C:/Users/DELL/Documents/Unity Projects/Shooter/Library/ScriptAssemblies/Unity.VisualEffectGraph.Runtime.dll</HintPath>
+     <HintPath>C:/Users/DELL/Documents/Unity Projects/Shooter/Curso-unity-2021/Library/ScriptAssemblies/Unity.VisualEffectGraph.Runtime.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Timeline">
-     <HintPath>C:/Users/DELL/Documents/Unity Projects/Shooter/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+     <HintPath>C:/Users/DELL/Documents/Unity Projects/Shooter/Curso-unity-2021/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualScripting.Core.Editor">
-     <HintPath>C:/Users/DELL/Documents/Unity Projects/Shooter/Library/ScriptAssemblies/Unity.VisualScripting.Core.Editor.dll</HintPath>
+     <HintPath>C:/Users/DELL/Documents/Unity Projects/Shooter/Curso-unity-2021/Library/ScriptAssemblies/Unity.VisualScripting.Core.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.TextMeshPro">
-     <HintPath>C:/Users/DELL/Documents/Unity Projects/Shooter/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+     <HintPath>C:/Users/DELL/Documents/Unity Projects/Shooter/Curso-unity-2021/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualScripting.State.Editor">
-     <HintPath>C:/Users/DELL/Documents/Unity Projects/Shooter/Library/ScriptAssemblies/Unity.VisualScripting.State.Editor.dll</HintPath>
+     <HintPath>C:/Users/DELL/Documents/Unity Projects/Shooter/Curso-unity-2021/Library/ScriptAssemblies/Unity.VisualScripting.State.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Searcher.Editor">
-     <HintPath>C:/Users/DELL/Documents/Unity Projects/Shooter/Library/ScriptAssemblies/Unity.Searcher.Editor.dll</HintPath>
+     <HintPath>C:/Users/DELL/Documents/Unity Projects/Shooter/Curso-unity-2021/Library/ScriptAssemblies/Unity.Searcher.Editor.dll</HintPath>
      </Reference>
      <Reference Include="VSSettingsProvider">
-     <HintPath>C:/Users/DELL/Documents/Unity Projects/Shooter/Library/ScriptAssemblies/VSSettingsProvider.dll</HintPath>
+     <HintPath>C:/Users/DELL/Documents/Unity Projects/Shooter/Curso-unity-2021/Library/ScriptAssemblies/VSSettingsProvider.dll</HintPath>
      </Reference>
      <Reference Include="Unity.2D.Sprite.Editor">
-     <HintPath>C:/Users/DELL/Documents/Unity Projects/Shooter/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
+     <HintPath>C:/Users/DELL/Documents/Unity Projects/Shooter/Curso-unity-2021/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.ProBuilder">
-     <HintPath>C:/Users/DELL/Documents/Unity Projects/Shooter/Library/ScriptAssemblies/Unity.ProBuilder.dll</HintPath>
+     <HintPath>C:/Users/DELL/Documents/Unity Projects/Shooter/Curso-unity-2021/Library/ScriptAssemblies/Unity.ProBuilder.dll</HintPath>
      </Reference>
      <Reference Include="Unity.ProBuilder.Editor">
-     <HintPath>C:/Users/DELL/Documents/Unity Projects/Shooter/Library/ScriptAssemblies/Unity.ProBuilder.Editor.dll</HintPath>
+     <HintPath>C:/Users/DELL/Documents/Unity Projects/Shooter/Curso-unity-2021/Library/ScriptAssemblies/Unity.ProBuilder.Editor.dll</HintPath>
      </Reference>
      <Reference Include="UnityEditor.UI">
-     <HintPath>C:/Users/DELL/Documents/Unity Projects/Shooter/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+     <HintPath>C:/Users/DELL/Documents/Unity Projects/Shooter/Curso-unity-2021/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
      </Reference>
      <Reference Include="Unity.PlasticSCM.Editor">
-     <HintPath>C:/Users/DELL/Documents/Unity Projects/Shooter/Library/ScriptAssemblies/Unity.PlasticSCM.Editor.dll</HintPath>
+     <HintPath>C:/Users/DELL/Documents/Unity Projects/Shooter/Curso-unity-2021/Library/ScriptAssemblies/Unity.PlasticSCM.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Rider.Editor">
-     <HintPath>C:/Users/DELL/Documents/Unity Projects/Shooter/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+     <HintPath>C:/Users/DELL/Documents/Unity Projects/Shooter/Curso-unity-2021/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.RenderPipelines.Core.ShaderLibrary">
-     <HintPath>C:/Users/DELL/Documents/Unity Projects/Shooter/Library/ScriptAssemblies/Unity.RenderPipelines.Core.ShaderLibrary.dll</HintPath>
+     <HintPath>C:/Users/DELL/Documents/Unity Projects/Shooter/Curso-unity-2021/Library/ScriptAssemblies/Unity.RenderPipelines.Core.ShaderLibrary.dll</HintPath>
      </Reference>
      <Reference Include="Unity.ProGrids.Editor">
-     <HintPath>C:/Users/DELL/Documents/Unity Projects/Shooter/Library/ScriptAssemblies/Unity.ProGrids.Editor.dll</HintPath>
+     <HintPath>C:/Users/DELL/Documents/Unity Projects/Shooter/Curso-unity-2021/Library/ScriptAssemblies/Unity.ProGrids.Editor.dll</HintPath>
      </Reference>
      <Reference Include="UnityEngine.UI">
-     <HintPath>C:/Users/DELL/Documents/Unity Projects/Shooter/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+     <HintPath>C:/Users/DELL/Documents/Unity Projects/Shooter/Curso-unity-2021/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
      </Reference>
      <Reference Include="Unity.RenderPipelines.Core.Runtime">
-     <HintPath>C:/Users/DELL/Documents/Unity Projects/Shooter/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Runtime.dll</HintPath>
+     <HintPath>C:/Users/DELL/Documents/Unity Projects/Shooter/Curso-unity-2021/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Runtime.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualScripting.Flow">
-     <HintPath>C:/Users/DELL/Documents/Unity Projects/Shooter/Library/ScriptAssemblies/Unity.VisualScripting.Flow.dll</HintPath>
+     <HintPath>C:/Users/DELL/Documents/Unity Projects/Shooter/Curso-unity-2021/Library/ScriptAssemblies/Unity.VisualScripting.Flow.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualScripting.Core">
-     <HintPath>C:/Users/DELL/Documents/Unity Projects/Shooter/Library/ScriptAssemblies/Unity.VisualScripting.Core.dll</HintPath>
+     <HintPath>C:/Users/DELL/Documents/Unity Projects/Shooter/Curso-unity-2021/Library/ScriptAssemblies/Unity.VisualScripting.Core.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Mathematics">
-     <HintPath>C:/Users/DELL/Documents/Unity Projects/Shooter/Library/ScriptAssemblies/Unity.Mathematics.dll</HintPath>
+     <HintPath>C:/Users/DELL/Documents/Unity Projects/Shooter/Curso-unity-2021/Library/ScriptAssemblies/Unity.Mathematics.dll</HintPath>
      </Reference>
      <Reference Include="Unity.ShaderGraph.Editor">
-     <HintPath>C:/Users/DELL/Documents/Unity Projects/Shooter/Library/ScriptAssemblies/Unity.ShaderGraph.Editor.dll</HintPath>
+     <HintPath>C:/Users/DELL/Documents/Unity Projects/Shooter/Curso-unity-2021/Library/ScriptAssemblies/Unity.ShaderGraph.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Cinemachine">
-     <HintPath>C:/Users/DELL/Documents/Unity Projects/Shooter/Library/ScriptAssemblies/Cinemachine.dll</HintPath>
+     <HintPath>C:/Users/DELL/Documents/Unity Projects/Shooter/Curso-unity-2021/Library/ScriptAssemblies/Cinemachine.dll</HintPath>
      </Reference>
      <Reference Include="com.unity.cinemachine.editor">
-     <HintPath>C:/Users/DELL/Documents/Unity Projects/Shooter/Library/ScriptAssemblies/com.unity.cinemachine.editor.dll</HintPath>
+     <HintPath>C:/Users/DELL/Documents/Unity Projects/Shooter/Curso-unity-2021/Library/ScriptAssemblies/com.unity.cinemachine.editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.RenderPipelines.Universal.Editor">
-     <HintPath>C:/Users/DELL/Documents/Unity Projects/Shooter/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Editor.dll</HintPath>
+     <HintPath>C:/Users/DELL/Documents/Unity Projects/Shooter/Curso-unity-2021/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.ProBuilder.AssetIdRemapUtility">
-     <HintPath>C:/Users/DELL/Documents/Unity Projects/Shooter/Library/ScriptAssemblies/Unity.ProBuilder.AssetIdRemapUtility.dll</HintPath>
+     <HintPath>C:/Users/DELL/Documents/Unity Projects/Shooter/Curso-unity-2021/Library/ScriptAssemblies/Unity.ProBuilder.AssetIdRemapUtility.dll</HintPath>
      </Reference>
      <Reference Include="Unity.RenderPipeline.Universal.ShaderLibrary">
-     <HintPath>C:/Users/DELL/Documents/Unity Projects/Shooter/Library/ScriptAssemblies/Unity.RenderPipeline.Universal.ShaderLibrary.dll</HintPath>
+     <HintPath>C:/Users/DELL/Documents/Unity Projects/Shooter/Curso-unity-2021/Library/ScriptAssemblies/Unity.RenderPipeline.Universal.ShaderLibrary.dll</HintPath>
      </Reference>
      <Reference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary">
-     <HintPath>C:/Users/DELL/Documents/Unity Projects/Shooter/Library/ScriptAssemblies/Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
+     <HintPath>C:/Users/DELL/Documents/Unity Projects/Shooter/Curso-unity-2021/Library/ScriptAssemblies/Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Timeline.Editor">
-     <HintPath>C:/Users/DELL/Documents/Unity Projects/Shooter/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+     <HintPath>C:/Users/DELL/Documents/Unity Projects/Shooter/Curso-unity-2021/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Mathematics.Editor">
-     <HintPath>C:/Users/DELL/Documents/Unity Projects/Shooter/Library/ScriptAssemblies/Unity.Mathematics.Editor.dll</HintPath>
+     <HintPath>C:/Users/DELL/Documents/Unity Projects/Shooter/Curso-unity-2021/Library/ScriptAssemblies/Unity.Mathematics.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.ProGrids">
-     <HintPath>C:/Users/DELL/Documents/Unity Projects/Shooter/Library/ScriptAssemblies/Unity.ProGrids.dll</HintPath>
+     <HintPath>C:/Users/DELL/Documents/Unity Projects/Shooter/Curso-unity-2021/Library/ScriptAssemblies/Unity.ProGrids.dll</HintPath>
      </Reference>
      <Reference Include="Unity.RenderPipelines.Core.Editor">
-     <HintPath>C:/Users/DELL/Documents/Unity Projects/Shooter/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Editor.dll</HintPath>
+     <HintPath>C:/Users/DELL/Documents/Unity Projects/Shooter/Curso-unity-2021/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualScripting.State">
-     <HintPath>C:/Users/DELL/Documents/Unity Projects/Shooter/Library/ScriptAssemblies/Unity.VisualScripting.State.dll</HintPath>
+     <HintPath>C:/Users/DELL/Documents/Unity Projects/Shooter/Curso-unity-2021/Library/ScriptAssemblies/Unity.VisualScripting.State.dll</HintPath>
      </Reference>
   </ItemGroup>
   <ItemGroup>
