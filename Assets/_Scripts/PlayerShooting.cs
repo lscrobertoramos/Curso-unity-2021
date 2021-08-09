@@ -9,6 +9,8 @@ public class PlayerShooting : MonoBehaviour
     public GameObject shootingPoing;
 
     private Animator _animator;
+
+    public int bulletsAmount;
     private void Awake()
     {
         _animator = GetComponent<Animator>();
@@ -20,9 +22,11 @@ public class PlayerShooting : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             _animator.SetTrigger("Shot Bullet");
-            
-            
-            Invoke("FireBullet", 0.25f);
+
+            if (bulletsAmount > 0)
+            {
+                Invoke("FireBullet", 0.25f);
+            }
         }
     }
 
@@ -33,6 +37,8 @@ public class PlayerShooting : MonoBehaviour
         bullet.transform.position = shootingPoing.transform.position;
         bullet.transform.rotation = shootingPoing.transform.rotation;
         bullet.SetActive(true);
+        
+        bulletsAmount--;
         //Destroy(bullet, 2); //TODO: Mejorar mañana
     }
 }
