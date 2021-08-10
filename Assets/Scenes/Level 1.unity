@@ -8885,6 +8885,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 6274342031844961871, guid: 15a116f9a074dac41ac640405df11e60, type: 3}
+      propertyPath: bulletsAmount
+      value: 100
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 15a116f9a074dac41ac640405df11e60, type: 3}
 --- !u!1 &907480308
@@ -9731,6 +9735,7 @@ GameObject:
   - component: {fileID: 1094580945}
   - component: {fileID: 1094580947}
   - component: {fileID: 1094580946}
+  - component: {fileID: 1094580948}
   m_Layer: 5
   m_Name: Enemi_Text (3)
   m_TagString: Untagged
@@ -9854,6 +9859,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1094580944}
   m_CullTransparentMesh: 1
+--- !u!114 &1094580948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1094580944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5367859b742d874fa112746c74210c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1153022318
 GameObject:
   m_ObjectHideFlags: 0
@@ -9998,6 +10015,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!114 &1170504193 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6274342031844961871, guid: 15a116f9a074dac41ac640405df11e60, type: 3}
+  m_PrefabInstance: {fileID: 896804169}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a99598f05da1fb4db5d2e790ca330c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1172561164
 GameObject:
   m_ObjectHideFlags: 0
@@ -15714,7 +15742,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2299116fe536cda4ba327408b4efdb63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetShooting: {fileID: 0}
+  targetShooting: {fileID: 1170504193}
 --- !u!1 &1714453545
 GameObject:
   m_ObjectHideFlags: 0
@@ -20903,6 +20931,7 @@ GameObject:
   - component: {fileID: 1796668473}
   - component: {fileID: 1796668475}
   - component: {fileID: 1796668474}
+  - component: {fileID: 1796668476}
   m_Layer: 5
   m_Name: Wave_Text (2)
   m_TagString: Untagged
@@ -21026,6 +21055,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1796668472}
   m_CullTransparentMesh: 1
+--- !u!114 &1796668476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1796668472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6455307cf99c2474cb016f2260270f2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1797899471
 GameObject:
   m_ObjectHideFlags: 0
@@ -26506,6 +26547,7 @@ GameObject:
   - component: {fileID: 2128628412}
   - component: {fileID: 2128628414}
   - component: {fileID: 2128628413}
+  - component: {fileID: 2128628415}
   m_Layer: 5
   m_Name: Score_Text
   m_TagString: Untagged
@@ -26629,6 +26671,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2128628411}
   m_CullTransparentMesh: 1
+--- !u!114 &2128628415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2128628411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e620915a52e49f46a20e3ecbb0f177d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2138777156
 GameObject:
   m_ObjectHideFlags: 0
